@@ -8,6 +8,7 @@ async function bootstrap() {
   );
 
   const walletSerivce = app.get(SolWalletService);
+  walletSerivce.createWallet();
   await walletSerivce.doAirdrop();
   await walletSerivce.getAccountInfo();
 

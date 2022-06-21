@@ -13,11 +13,18 @@ export class SolWalletService implements OnModuleInit {
                 web3.clusterApiUrl('devnet'),
                 'confirmed',
             );
-            this.logger.log("Connected to 'devnet'.")
+            this.logger.log("Initialized and connected to 'devnet'.")
+        } catch (error) {
+            new Error(error.message);            
+        }
+    }
+
+    createWallet(): void {
+        try {
             this.wallet = web3.Keypair.generate();
             this.logger.log("Created new wallet.")
         } catch (error) {
-            new Error(error.message);            
+            new Error(error.message);
         }
     }
 
